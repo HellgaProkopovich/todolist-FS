@@ -18,7 +18,7 @@ Template:
 
 Common commit types:
 
--   `feat`: — a new feature
+-   `feat`: — a new feature <br>
     `feat(auth): add login and register endpoints`
 -   `fix`: — a bug fix
     `fix(todos): correct filter for completed tasks`
