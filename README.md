@@ -7,10 +7,30 @@
 -   How to run Server
     `cd client && npm i && npm run dev`
 
-## How to name commits/branches
+## How to name tasks
 
-`prefix/task-name`:
+Template:
+`type(scope): short description`
 
--   `feat/my-new-great-feature` -- use prefix `feat` to name features: new blocks / components, styles, etc., what a client can see
--   `chore/package-json` -- use prefix `chore` to name chore tasks: things for development / configuration / gitignore, etc.
--   `fix/footer-position-fix` -- use prefix `fix` to name bugfixes
+-   `type` → prefix (feat, fix, chore…)
+-   `scope` (optional) → a specific area (auth, todos, client, server)
+-   `short description` → a concise summary
+
+Common commit types:
+
+-   `feat`: — a new feature
+    `feat(auth): add login and register endpoints`
+-   `fix`: — a bug fix
+    `fix(todos): correct filter for completed tasks`
+-   `chore`: — maintenance work (dependencies, configs, migrations, not affecting app behavior)
+    `chore(server): setup prisma and add initial migration`
+-   `refactor`: — code changes that don’t affect functionality (improve structure, readability)
+    `refactor(client): simplify TodoItem component`
+-   `style`: — code style changes (eslint, prettier, formatting, but not CSS)
+    `style: format code with prettier`
+-   `docs`: — documentation changes
+    `docs: update README with install instructions`
+-   `test`: — add or fix tests
+    `test(auth): add unit tests for login service`
+-   `build`: — changes to build system, CI/CD, or tooling (like Vite, Webpack)
+    `build(client): add tailwindcss and postcss config`
