@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { prisma } from "../db";
 import { generateAccessToken, generateRefreshToken } from "../utils/jwt";
-// import { error } from "console";
+import { requireAuth, type AuthRequest } from "../middleware/auth";
 // import { access } from "fs";
 
 const router = Router();
@@ -18,7 +18,6 @@ const router = Router();
 // router.post("/refresh-test", (req, res) => {
 //   res.json({ method: req.method, got: req.body });
 // });
-
 
 // REGISTRATION
 router.post("/register", async (req, res) => {
@@ -108,6 +107,11 @@ router.post("/refresh", async (req, res) => {
     console.error("refresh error:", err);
     return res.status(401).json({ error: "invalid refresh token" });
   };
+});
+
+// // защищённый маршрут "кто я" (временный маршрут)
+router.get("/me", requireAuth, (req: AuthRequest, res) => {
+  res.json({ user: req.user });
 });
 
 export default router;

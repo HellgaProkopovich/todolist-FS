@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
-import authRoutes from "./routes/auth"
+import authRoutes from "./routes/auth";
+import todoRoutes from "./routes/todos";
 import { prisma } from "./db"; // импортируем prisma-клиент
 
 const app = express();
@@ -11,13 +12,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// В server/src/index.ts временно добавь (ниже app.use(express.json()), но до app.listen):
-// app.post("/echo-root", (req, res) => {
-//   console.log("[ROOT] hit /echo-root body:", req.body);
-//   res.json({ from: "root", got: req.body });
-// });
-
 app.use("/auth", authRoutes);
+app.use("/todos", todoRoutes);
 
 // health-check
 app.get("/health", (_req, res) => {
