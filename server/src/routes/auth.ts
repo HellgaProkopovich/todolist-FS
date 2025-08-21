@@ -4,20 +4,8 @@ import jwt from "jsonwebtoken";
 import { prisma } from "../db";
 import { generateAccessToken, generateRefreshToken } from "../utils/jwt";
 import { requireAuth, type AuthRequest } from "../middleware/auth";
-// import { access } from "fs";
 
 const router = Router();
-
-// // В server/src/routes/auth.ts: оставь два тестовых маршрута (минимальные).
-// router.get("/ping", (_req, res) => {
-//   res.json({ ok: true, from: "auth-router" });
-// });
-// // router.post("/echo", (req, res) => {
-// //   res.json({ from: "auth-router", got: req.body });
-// // });
-// router.post("/refresh-test", (req, res) => {
-//   res.json({ method: req.method, got: req.body });
-// });
 
 // REGISTRATION
 router.post("/register", async (req, res) => {
@@ -67,6 +55,9 @@ router.post("/login", async (req, res) => {
     const accessToken = generateAccessToken(user.id, user.username);
     const refreshToken = generateRefreshToken(user.id, user.username);
 
+    // удаляем предыдущие токены пользователя = То есть «1 refresh токен на пользователя»
+    await prisma.token.deleteMany({ where: { userId: user.id } });
+
     // сохраняем refresh в БД
     await prisma.token.create({ data: { userId: user.id, refreshToken } });
     return res.json({ accessToken, refreshToken });
@@ -109,7 +100,7 @@ router.post("/refresh", async (req, res) => {
   };
 });
 
-// // защищённый маршрут "кто я" (временный маршрут)
+// защищённый маршрут "кто я" (временный маршрут)
 router.get("/me", requireAuth, (req: AuthRequest, res) => {
   res.json({ user: req.user });
 });
