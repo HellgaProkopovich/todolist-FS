@@ -8,7 +8,7 @@ The project includes backend with JWT tokens and Prisma database, and frontend b
 -   **Todos per user** (each user sees only their own)
 -   **Simple UI** with filters (All / Active / Completed)
 -   **REST API** with Express + Prisma
--   **Frontend** with protected routes and styles built with TailwindCSS
+-   **Frontend** with protected routes, styles built with TailwindCSS, and responsive design
 
 ## Stack
 
@@ -17,6 +17,8 @@ The project includes backend with JWT tokens and Prisma database, and frontend b
 -   **Client:** React + Vite, TypeScript, Redux Toolkit (RTK Query), TailwindCSS
 
 Ports: server **4000**, client **5173**, Prisma Studio **5555**
+
+<img width="1591" height="606" alt="2025-08-22_19-55-55" src="https://github.com/user-attachments/assets/60b30cb3-611f-4945-8cdf-19a59e4dc6ab" />
 
 ## How to install
 
