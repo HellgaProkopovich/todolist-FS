@@ -18,7 +18,9 @@ The project includes backend with JWT tokens and Prisma database, and frontend b
 
 Ports: server **4000**, client **5173**, Prisma Studio **5555**
 
-<img width="1591" height="606" alt="2025-08-22_19-55-55" src="https://github.com/user-attachments/assets/60b30cb3-611f-4945-8cdf-19a59e4dc6ab" />
+## DEMO
+![IMG_6668-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/1a598608-a812-4f35-ad71-28d215d2949c)
+
 
 ## How to install
 
