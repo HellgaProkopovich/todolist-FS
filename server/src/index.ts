@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/auth";
 import todoRoutes from "./routes/todos";
-import { prisma } from "./db"; // импортируем prisma-клиент
+import { prisma } from "./db";
 
 const app = express();
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
