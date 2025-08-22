@@ -12,11 +12,11 @@ export function getApiErrorMessage(err: unknown): string {
       typeof (maybe.data as Record<string, unknown>).error === "string"
    ) {
       return (maybe.data as { error: string }).error;
-   }
+   };
 
    try {
       return JSON.stringify(maybe.data ?? "");
    } catch {
       return "Request failed";
-   }
-}
+   };
+};

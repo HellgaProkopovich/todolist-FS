@@ -1,13 +1,66 @@
 # ToDoList FullStack
 
+This is a fullstack Todo List app with user authentication.  
+Users can register, login, and manage their personal tasks (add, edit, delete, mark completed).  
+The project includes backend with JWT tokens and Prisma database, and frontend built with React, Redux Toolkit, and TailwindCSS.
+
+-   **Secure auth** with access/refresh tokens
+-   **Todos per user** (each user sees only their own)
+-   **Simple UI** with filters (All / Active / Completed)
+-   **REST API** with Express + Prisma
+-   **Frontend** with protected routes and styles built with TailwindCSS
+
+## Stack
+
+-   **Server:** Node.js, TypeScript, Express, Prisma, JWT, bcrypt
+-   **DB:** SQLite (default)
+-   **Client:** React + Vite, TypeScript, Redux Toolkit (RTK Query), TailwindCSS
+
+Ports: server **4000**, client **5173**, Prisma Studio **5555**
+
 ## How to install
 
--   How to run Client
-    `cd server && npm i && npm run dev`
--   How to run Server
-    `cd client && npm i && npm run dev`
+```bash
+git clone <repo-url>
+cd todolist-FS
+```
 
-## How to name tasks
+-   How to run `client`
+    ```bash
+    cd server && npm i && npm run dev
+    ```
+-   How to run `server`
+    ```bash
+    cd client && npm i && npm run dev
+    ```
+
+## API (short)
+
+Base URL: http://127.0.0.1:4000
+
+Auth
+
+-   POST /auth/register `{ username, password }`
+-   POST /auth/login `{ username, password }` → `{ accessToken, refreshToken }`
+-   POST /auth/refresh `{ refreshToken }`
+-   GET /auth/me` (protected)
+
+Todos (protected)
+
+-   GET /todos → `Todo[]`
+-   POST /todos `{ title }`
+-   PUT /todos/:id `{ title?, completed? }`
+-   DELETE /todos/:id
+
+## Tokens on client
+
+-   access/refresh stored in Redux + localStorage
+-   Axios interceptor refreshes access token automatically
+-   Protected route `/todos` redirects to `/login` if no access token
+
+---
+
+### How to name tasks
 
 Template:
 `type(scope): short description`

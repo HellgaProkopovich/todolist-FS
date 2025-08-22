@@ -37,7 +37,7 @@ export default function LoginPage() {
          // 4) кладём пользователя
          dispatch(authActions.setUser(me.user));
 
-         // вычищаем кэш прошлого пользователя
+         // (вычищаем кэш прошлого пользователя)
          dispatch(api.util.resetApiState());
 
          // 5) на /todos

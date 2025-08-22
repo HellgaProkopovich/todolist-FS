@@ -7,7 +7,7 @@ export const store = configureStore({
       auth: authReducer,
       [api.reducerPath]: api.reducer
    },
-   middleware: (getDefaultMiddleware) =>  // ⬅️ ДОБАВЬ ЭТО for test
+   middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(api.middleware),
 });
 

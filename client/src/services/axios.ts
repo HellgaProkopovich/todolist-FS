@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { store } from "../app/store";
 import { authActions } from "../features/auth/authSlice";
 
 // instead of import store
@@ -16,11 +15,6 @@ export const apiClient = axios.create({
 let refreshPromise: Promise<string> | null = null; // хранит новый access пока рефреш идёт
 
 // ➝ добавляем токен к каждому запросу
-// apiClient.interceptors.request.use((config) => {
-//    const access = store.getState().auth.accessToken;
-//    if (access) config.headers.Authorization = `Bearer ${access}`;
-//    return config;
-// });
 apiClient.interceptors.request.use(async (config) => {
    const store = await getStore();
    const access = store.getState().auth.accessToken;
@@ -38,10 +32,8 @@ apiClient.interceptors.response.use(
 
       if (is401 && !tried) {
          original._retry = true;
-         // const state = store.getState();
-         const store = await getStore(); // <-- добавили
-         // const refreshToken = state.auth.refreshToken;
-         const refreshToken = store.getState().auth.refreshToken; // <--changed
+         const store = await getStore();
+         const refreshToken = store.getState().auth.refreshToken;
 
          if (!refreshToken) {
             store.dispatch(authActions.logout());

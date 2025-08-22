@@ -26,7 +26,7 @@ router.post("/register", async (req, res) => {
 
     // создаём пользователя
     const user = await prisma.user.create({ data: { username, passwordHash } });
-    return res.json({ message: "user created", userId: user.id });
+    return res.status(201).json({ message: "user created", userId: user.id });
   } catch (err) {
       console.error("register error:", err);
       return res.status(500).json({ error: "internal error" });
@@ -100,7 +100,7 @@ router.post("/refresh", async (req, res) => {
   };
 });
 
-// защищённый маршрут "кто я" (временный маршрут)
+// защищённый маршрут "кто я"
 router.get("/me", requireAuth, (req: AuthRequest, res) => {
   res.json({ user: req.user });
 });
