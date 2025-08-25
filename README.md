@@ -25,7 +25,7 @@ Ports: server **4000**, client **5173**, Prisma Studio **5555**
 ## How to install
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/HellgaProkopovich/todolist-FS.git
 cd todolist-FS
 ```
 
