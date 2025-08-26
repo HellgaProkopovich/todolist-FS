@@ -16,11 +16,9 @@ The project includes backend with JWT tokens and Prisma database, and frontend b
 -   **DB:** SQLite (default)
 -   **Client:** React + Vite, TypeScript, Redux Toolkit (RTK Query), TailwindCSS
 
-Ports: server **4000**, client **5173**, Prisma Studio **5555**
-
 ## DEMO
-![IMG_6668-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/1a598608-a812-4f35-ad71-28d215d2949c)
 
+![IMG_6668-ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/1a598608-a812-4f35-ad71-28d215d2949c)
 
 ## How to install
 
@@ -37,6 +35,8 @@ cd todolist-FS
     ```bash
     cd client && npm i && npm run dev
     ```
+
+Ports: server **4000**, client **5173**, Prisma Studio **5555**
 
 ## API (short)
 
