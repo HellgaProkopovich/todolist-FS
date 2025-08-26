@@ -1,8 +1,8 @@
 # ToDoList FullStack
 
-This is a fullstack Todo List app with user authentication.  
+This is a **fullstack Todo List app** with user authentication.
 Users can register, login, and manage their personal tasks (add, edit, delete, mark completed).  
-The project includes backend with JWT tokens and Prisma database, and frontend built with React, Redux Toolkit, and TailwindCSS.
+The project includes **backend** with `JWT tokens` and `Prisma database`, and **frontend** built with `React`, `Redux Toolkit`, and `TailwindCSS`.
 
 -   **Secure auth** with access/refresh tokens
 -   **Todos per user** (each user sees only their own)
@@ -12,9 +12,9 @@ The project includes backend with JWT tokens and Prisma database, and frontend b
 
 ## Stack
 
--   **Server:** Node.js, TypeScript, Express, Prisma, JWT, bcrypt
--   **DB:** SQLite (default)
--   **Client:** React + Vite, TypeScript, Redux Toolkit (RTK Query), TailwindCSS
+-   **Server:** `Node.js`, `TypeScript`, `Express`, `Prisma`, `JWT`, `bcrypt`
+-   **DB:** `SQLite` (default)
+-   **Client:** `React` + `Vite`, `TypeScript`, `Redux Toolkit` (`RTK Query`), `TailwindCSS`
 
 ## DEMO
 
